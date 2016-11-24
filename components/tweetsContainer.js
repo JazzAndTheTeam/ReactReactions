@@ -14,5 +14,4 @@ const TweetsView = (props) => {
   </div>
 }
 
-
 module.exports = TweetsView
