@@ -13,6 +13,7 @@ module.exports = function reducer (state, action){
           newState.negTweets.push(tweet)
         }
       })
+      console.log(newState)
       return newState
     case 'UP_VOTE':
       return newState
