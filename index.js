@@ -6,8 +6,8 @@ const App = require('./components/app')
 
 const initialState = {
   tweets: [
-    {id: 1, tweet: "React sucks", vote: 3},
-    {id: 2, tweet: "I LOVE REACT", vote: -3}
+    {id: 1, tweet: "React sucks", vote: 3, upVoted: false, downVoted: false},
+    {id: 2, tweet: "I LOVE REACT", vote: -3, upVoted: false, downVoted: false}
   ],
   posTweets: [],
   negTweets: []
