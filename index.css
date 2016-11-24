@@ -1,0 +1,16 @@
+body {
+  text-align: center;
+  font-family: 'Raleway', sans-serif;
+}
+
+.title {
+  text-align: center;
+}
+
+.pos {
+  float: left;
+}
+
+.neg {
+  float: right;
+}
