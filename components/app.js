@@ -14,7 +14,7 @@ const App = (props) =>
     <TweetsContainer
     mainClass='neg'
     childClass='negative'
-    tweets={props.state.posTweets}
+    tweets={props.state.negTweets}
     dispatch={props.dispatch}
     />
   </div>
