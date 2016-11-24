@@ -5,7 +5,7 @@ const TweetsContainer = (props) =>
   <div className={props.mainClass}>
     {props.tweets.map((tweet, i) =>
       <div className={props.childClass} id={tweet.id} key={i}>
-        <p className='tweetText'>{tweet.tweet}</p>
+        <p className='tweetText'>"{tweet.tweet}"</p>
         <p className='voteText'>{tweet.vote}</p>
         <button onClick={() => props.dispatch({type: 'UP_VOTE'})}>+</button>
         <button onClick={() => props.dispatch({type: 'DOWN_VOTE'})}>-</button>
