@@ -3,14 +3,16 @@ import { render } from 'react-dom'
 import { createStore } from 'redux'
 const reducer = require('./reducer')
 const App = require('./components/app')
+const loadTweets = require('./apiCalls').loadTweets
 
 const initialState = {
   tweets: [
-    {id: 1, tweet: "React sucks", vote: 3},
-    {id: 2, tweet: "I LOVE REACT", vote: -3}
+    {id: 1, tweet: "React sucks", votes: 3, upVoted: false, downVoted: false},
+    {id: 2, tweet: "I LOVE REACT", votes: -3, upVoted: false, downVoted: false}
   ],
   posTweets: [],
-  negTweets: []
+  negTweets: [],
+  loadingTweets: false
 }
 
 const main = document.querySelector('main')
@@ -21,4 +23,8 @@ store.subscribe(function () {
   render(<App state={state} dispatch={store.dispatch} />, main)
 })
 
-store.dispatch({type: 'INIT'})
+function init() {
+  loadTweets(store.dispatch)
+}
+
+init()
