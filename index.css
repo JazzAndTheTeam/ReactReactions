@@ -67,10 +67,7 @@ button:hover {
   background-color: #90C695;
 
 }
-.clicked {
-  opacity: 0.2;
-  border: 1px solid black;
-}
+
 .negative {
   background-color: #D24D57;
 }
