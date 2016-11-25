@@ -1,6 +1,7 @@
 const redux = require('redux')
 const clone = require('clone')
 const loadTweets = require('./apiCalls').loadTweets
+const sendVotes =require('./apiCalls').sendVotes
 
 module.exports = function reducer (state, action){
   let newState = clone(state)
@@ -25,13 +26,16 @@ module.exports = function reducer (state, action){
         if(tweet.id === payload && !tweet.upVoted && !tweet.downVoted){
           tweet.votes++
           tweet.upVoted = true
+          sendVotes(tweet)
         } else if (tweet.id === payload && tweet.upVoted) {
           tweet.votes--
           tweet.upVoted = false
+          sendVotes(tweet)
         } else if (tweet.id === payload && tweet.downVoted){
           tweet.votes += 2
           tweet.upVoted = true
           tweet.downVoted = false
+          sendVotes(tweet)
         }
       })
       return newState
@@ -40,13 +44,16 @@ module.exports = function reducer (state, action){
         if(tweet.id === payload && !tweet.upVoted && !tweet.downVoted){
           tweet.votes--
           tweet.downVoted = true
+          sendVotes(tweet)
         } else if (tweet.id === payload && tweet.downVoted) {
           tweet.votes++
           tweet.downVoted = false
+          sendVotes(tweet)
         } else if (tweet.id === payload && tweet.upVoted){
           tweet.votes -= 2
           tweet.upVoted = false
           tweet.downVoted = true
+          sendVotes(tweet)
         }
       })
       return newState
