@@ -9,8 +9,10 @@ body {
 
 .pos {
   float: left;
+  width: 49%;
 }
 
 .neg {
   float: right;
+  width: 49%;
 }
