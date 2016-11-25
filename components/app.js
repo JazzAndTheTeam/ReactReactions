@@ -1,15 +1,22 @@
-import React, { Component } from 'react'
+import React from 'react'
+import { render } from 'react-dom'
+const TweetsContainer = require('./tweetsContainer')
 
-class App extends Component {
+const App = (props) =>
+  <div className='App'>
+    <TweetsContainer
+    mainClass='pos'
+    childClass='positive'
+    tweets={props.state.posTweets}
+    dispatch={props.dispatch}
+    />
 
-  constructor (props) {
-    super(props)
-  }
+    <TweetsContainer
+    mainClass='neg'
+    childClass='negative'
+    tweets={props.state.negTweets}
+    dispatch={props.dispatch}
+    />
+  </div>
 
-  render () {
-    return <h1>Welcome to {this.props.name}</h1>
-  }
-
-}
-
-export default App
+module.exports = App

@@ -1,3 +1,18 @@
-main {
+body {
   text-align: center;
+  font-family: 'Raleway', sans-serif;
+}
+
+.title {
+  text-align: center;
+}
+
+.pos {
+  float: left;
+  width: 49%;
+}
+
+.neg {
+  float: right;
+  width: 49%;
 }
