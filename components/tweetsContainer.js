@@ -7,8 +7,8 @@ const TweetsContainer = (props) =>
       <div className={props.childClass} id={tweet.id} key={i}>
         <p className='tweetText'>"{tweet.tweet}"</p>
         <p className='voteText'>{tweet.votes}</p>
-        <button title="up vote" className='upButton' onClick={() => props.dispatch({type: 'UP_VOTE', payload: tweet.id})}>+</button>
-        <button title="down vote" className='downButton' onClick={() => props.dispatch({type: 'DOWN_VOTE', payload: tweet.id})}>-</button>
+        <button title="up vote" className={customClass(tweet)} onClick={() => props.dispatch({type: 'UP_VOTE', payload: tweet.id})}>+</button>
+        <button title="down vote" className={customClass(tweet)} onClick={() => props.dispatch({type: 'DOWN_VOTE', payload: tweet.id})}>-</button>
       </div>
      )}
   </div>
@@ -23,4 +23,10 @@ function sortByKey(props) {
         }
         return ((x > y) ? -1 : ((x < y) ? 1 : 0))
     })
+}
+
+function customClass(tweet){
+  if(tweet.upVoted || tweet.downVoted){
+    return "clicked"
+  }
 }
